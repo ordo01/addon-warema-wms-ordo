@@ -8,6 +8,7 @@
   "url": "https://github.com/ordo01/addon-warema-bridge-ordo",
   "boot": "auto",
   "hassio_api": true,
+  "init": false,
   "options": {
     "wms_serial_port": null
   },
