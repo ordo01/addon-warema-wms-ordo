@@ -1,14 +1,14 @@
 {
   "name": "Warema Bridge",
-  "version": "dev",
+  "version": "0.0.1",
   "slug": "warema-bridge",
   "description": "Control your Warema WMS system",
   "arch": ["aarch64", "amd64", "armv7", "i386"],
   "startup": "services",
-  "url": "https://github.com/giannello/addon-warema-bridge",
+  "url": "https://github.com/ordo01/addon-warema-bridge-ordo",
   "boot": "auto",
   "hassio_api": true,
-  "image": "giannello/addon-warema-bridge",
+  "image": "ordo01/addon-warema-bridge-ordo",
   "options": {
     "wms_serial_port": null
   },
