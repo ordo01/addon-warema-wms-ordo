@@ -2,6 +2,15 @@
 ARG BUILD_FROM=alpine:3.20.3
 FROM $BUILD_FROM
 
+# Setup base
+RUN apk add --no-cache npm
+
+# Copy root filesystem
+COPY rootfs/srv /srv
+
+WORKDIR /srv
+
+
 #FROM node:18-alpine as builder
 
 ## Install build toolchain, install node deps and compile native add-ons
