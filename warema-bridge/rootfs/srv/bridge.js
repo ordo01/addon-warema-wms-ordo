@@ -1,6 +1,9 @@
 const warema = require('./warema-wms-venetian-blinds');
 const mqtt = require('mqtt')
 
+// setting constant values
+const mqttServer = process.env.MQTT_SERVER || 'mqtt://localhost'
+
 originalLog = console.log;
 console.log = function () {
     var args = [].slice.call(arguments);
@@ -240,9 +243,11 @@ function callback(err, msg) {
 
 var stickUsb = null
 
+//Do not attempt connecting to MQTT if trying to discover network parameters
+if (settingsPar.wmsPanid === 'FFFF') return;
+
 const client = mqtt.connect(
-  console.log('************************** in MQTT connect ****************' + process.enf.MQTT_SERVER)
-  process.env.MQTT_SERVER,
+  mqttServer,
   {
     username: process.env.MQTT_USER,
     password: process.env.MQTT_PASSWORD,
