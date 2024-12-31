@@ -10,6 +10,12 @@ COPY rootfs/srv /srv
 
 WORKDIR /srv
 
+RUN apk add --no-cache --virtual .build-deps python3 make g++ linux-headers \
+    && npm ci --omit=dev && npm rebuild --build-from-source\
+    && apk del --no-cache --purge .build-deps \
+    && rm -rf /root/.npm /root/.cache
+
+ENTRYPOINT ["node", "/srv/bridge.js"]
 
 #FROM node:18-alpine as builder
 
