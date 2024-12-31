@@ -241,6 +241,7 @@ function callback(err, msg) {
 var stickUsb = null
 
 const client = mqtt.connect(
+  console.log('************************** in MQTT connect ****************' + process.enf.MQTT_SERVER)
   process.env.MQTT_SERVER,
   {
     username: process.env.MQTT_USER,
